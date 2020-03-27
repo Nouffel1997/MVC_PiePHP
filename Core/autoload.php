@@ -1,7 +1,10 @@
 <?php
 spl_autoload_register(function ($classe_name) {
 
+
+
     $classe_name = explode("\\", $classe_name);
+
 
     foreach ($classe_name as $value) {
 
