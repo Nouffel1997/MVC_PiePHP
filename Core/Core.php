@@ -6,6 +6,7 @@ class Core
 {
     public function run()
     {
+        include '/src/routes.php';
         echo __CLASS__ . " [ OK ]" . PHP_EOL;
         echo $_SERVER["REDIRECT_URL"] . "<br>";
 
