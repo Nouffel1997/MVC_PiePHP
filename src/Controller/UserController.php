@@ -5,7 +5,7 @@ class UserController extends Controller
 
     public function indexAction()
     {
-        $this->render("index");
+        
     }
 
     public function addAction()
