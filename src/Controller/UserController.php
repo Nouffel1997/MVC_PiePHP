@@ -1,10 +1,11 @@
 <?php
 
-class UserController
+class UserController extends Controller
 {
 
     public function indexAction()
     {
+        $this->render("index");
     }
 
     public function addAction()

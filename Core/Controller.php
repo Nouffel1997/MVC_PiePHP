@@ -1,6 +1,8 @@
 <?php
 class Controller
 {
+
+    
     protected function render($view, $scope = [])
     {
         extract($scope);
@@ -15,3 +17,4 @@ class Controller
         }
     }
 }
+
