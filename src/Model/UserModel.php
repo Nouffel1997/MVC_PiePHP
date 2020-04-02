@@ -3,14 +3,20 @@
 class UserModel
 {
 
-    //protected $id;
+    protected $id;
     private $email;
     private $password;
     private $tableName = 'users';
     private $dbConn;
 
-    //function setId($id) { $this->id = $id; }
-    //function getId() { return $this->id; }
+    function setId($id)
+    {
+        $this->id = $id;
+    }
+    function getId()
+    {
+        return $this->id;
+    }
     function setEmail($email)
     {
         $this->email = $email;
@@ -48,26 +54,25 @@ class UserModel
 
     public function create()
     {
-
     }
 
     public function read()
     {
-
     }
 
     public function update()
     {
-
     }
 
     public function delete()
     {
-
+        $sql = "DELETE FROM $this->tableName WHERE id=:id";
+        $stmt = $this->dbConn->prepare($sql);
+        $stmt->bindParam(':id', $this->id);
+        $stmt->execute();
     }
 
     public function read_all()
     {
-
     }
 }
