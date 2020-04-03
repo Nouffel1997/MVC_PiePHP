@@ -2,7 +2,7 @@
 class Controller
 {
 
-    
+    public static $_render;
    
     
     protected function render($view, $scope = [])

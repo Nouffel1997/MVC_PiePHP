@@ -58,6 +58,10 @@ class UserModel
 
     public function read()
     {
+        $sql = "SELECT * FROM $this->tableName WHERE id=:id";
+        $stmt = $this->dbConn->prepare($sql);
+        $stmt->bindParam(':id', $this->id);
+        $stmt->execute();
     }
 
     public function update()
@@ -74,5 +78,8 @@ class UserModel
 
     public function read_all()
     {
+        $sql = "SELECT * FROM $this->tableName";
+        $stmt = $this->dbConn->prepare($sql);
+        $stmt->execute();
     }
 }
