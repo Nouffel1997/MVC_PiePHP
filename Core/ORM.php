@@ -2,7 +2,10 @@
 class ORM extends DbConnect {
     public function create($table, $fields)
     {
-
+        $sql = "INSERT INTO $table VALUES($fields)";
+        $stmt = $this->dbConn->prepare($sql);
+        $stmt->bindParam(':fields', $fields);
+        $stmt->execute();
     }
 
     public function read($table, $id)

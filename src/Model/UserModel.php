@@ -54,6 +54,11 @@ class UserModel
 
     public function create()
     {
+        $sql = "INSERT INTO $this->tableName VALUES(null, :email, :password)";
+        $stmt = $this->dbConn->prepare($sql);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':password', $this->password);
+        $stmt->execute();
     }
 
     public function read()
@@ -66,6 +71,7 @@ class UserModel
 
     public function update()
     {
+        
     }
 
     public function delete()

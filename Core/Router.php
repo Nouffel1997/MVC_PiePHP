@@ -14,5 +14,6 @@ class Router
         // - le controller a instancier
         // - la methode du controller a appeler
        return array('controller' => 'app', 'action' => 'index');
+       
     }
 }
