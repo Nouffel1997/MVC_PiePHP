@@ -3,10 +3,7 @@ class Controller
 {
     public static $_render;
 
-    public function __construct()
-    {
-        
-    }
+    
    
     
     protected function render($view, $scope = [])

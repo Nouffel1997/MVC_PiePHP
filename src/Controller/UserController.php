@@ -20,5 +20,6 @@ class UserController extends Controller
             $action = new UserModel($_POST['email'], $_POST['password']);
             $action->save();
         }
+    
     }
 }
