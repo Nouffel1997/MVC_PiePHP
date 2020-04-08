@@ -1,5 +1,6 @@
 <?php
 
+use Core\Controller;
 
 class UserController extends Controller
 {
@@ -19,7 +20,14 @@ class UserController extends Controller
         if (isset($_POST['email']) && isset($_POST['password'])) {
             $action = new UserModel($_POST['email'], $_POST['password']);
             $action->save();
+            //$this->render('register');
         }
-    
+        else{
+            $this->render('register');
+        }
+    }
+    public function loginAction()
+    {
+        $this->render('login');
     }
 }

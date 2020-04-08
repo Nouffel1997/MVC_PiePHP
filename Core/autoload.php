@@ -12,7 +12,7 @@ spl_autoload_register(function ($classe_name) {
     }
 
     include 'Core/' . $class;
-    include '/src/Model/' . $class;
-    include '/src/View/' . $class;
-    include '/src/Controller/' . $class;
+    include './src/Model/' . $class;
+    include './src/View/' . $class;
+    include './src/Controller/' . $class;
 });

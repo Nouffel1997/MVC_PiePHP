@@ -1,12 +1,12 @@
 <?php
-class ORM extends DbConnect {
+class ORM extends DbConnect
+{
     public function create($table, $fields)
     {
         $sql = "INSERT INTO $table VALUES($fields)";
         $stmt = $this->dbConn->prepare($sql);
         $stmt->bindParam(':fields', $fields);
         $stmt->execute();
-
     }
 
     public function read($table, $id)
@@ -15,12 +15,14 @@ class ORM extends DbConnect {
         $stmt = $this->dbConn->prepare($sql);
         $stmt->execute();
         return array();
-
     }
 
     public function update($table, $id, $fields)
     {
-        
+
+        $sql = "UPDATE $table SET $fields WHERE id=$id";
+        $stmt = $this->dbConn->prepare($sql);
+        $stmt->execute();
     }
 
     public function delete($table, $id)
@@ -30,5 +32,4 @@ class ORM extends DbConnect {
         $stmt->execute();
         return true;
     }
-
 }

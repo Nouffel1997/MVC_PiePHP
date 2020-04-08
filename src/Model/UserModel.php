@@ -1,6 +1,6 @@
 <?php
 
-class UserModel
+class UserModel extends Entity
 {
 
     protected $id;
@@ -71,7 +71,10 @@ class UserModel
 
     public function update()
     {
-        
+        $sql = "UPDATE $this->tableName SET  WHERE id=:id";
+        $stmt = $this->dbConn->prepare($sql);
+        $stmt->bindParam(':id', $this->id);
+        $stmt->execute();
     }
 
     public function delete()
