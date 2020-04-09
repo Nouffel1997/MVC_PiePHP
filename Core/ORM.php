@@ -31,5 +31,6 @@ class ORM extends DbConnect
         $stmt = $this->dbConn->prepare($sql);
         $stmt->execute();
         return true;
+        
     }
 }
