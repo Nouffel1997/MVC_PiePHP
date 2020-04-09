@@ -43,11 +43,10 @@ class UserModel extends Entity
     }
     public function save()
     {
-        $hashedPassword = password_hash($this->password, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO $this->tableName VALUES(null, :email, :password)";
+        $sql = "INSERT INTO $this->tableName (email, password) VALUES(null, :email, :password)";
         $stmt = $this->dbConn->prepare($sql);
         $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':password', $hashedPassword);
+        $stmt->bindParam(':password', $this->password);
         $stmt->execute();
     }
 
