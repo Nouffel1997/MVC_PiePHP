@@ -7,6 +7,7 @@ class ORM extends DbConnect
         $stmt = $this->dbConn->prepare($sql);
         $stmt->bindParam(':fields', $fields);
         $stmt->execute();
+       
     }
 
     public function read($table, $id)
@@ -31,6 +32,6 @@ class ORM extends DbConnect
         $stmt = $this->dbConn->prepare($sql);
         $stmt->execute();
         return true;
-        
+
     }
 }

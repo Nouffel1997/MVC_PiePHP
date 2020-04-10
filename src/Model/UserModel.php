@@ -43,7 +43,7 @@ class UserModel extends Entity
     }
     public function save()
     {
-        $sql = "INSERT INTO $this->tableName (email, password) VALUES(null, :email, :password)";
+        $sql = "INSERT INTO $this->tableName VALUES(null, :email, :password)";
         $stmt = $this->dbConn->prepare($sql);
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':password', $this->password);
