@@ -10,7 +10,6 @@ class ORM
         $table = 'users';
         $sql = "INSERT INTO $table VALUES($fields)";
         $stmt = $this->dbConn->prepare($sql);
-        //$stmt->bindParam(':fields', $fields);
         $stmt->execute();
        
     }
