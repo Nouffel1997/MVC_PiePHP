@@ -1,8 +1,8 @@
 <?php
 
-use Core\Controller;
 
-class UserController extends Controller
+
+class UserController extends \Core\Controller
 {
 
     public function indexAction()
@@ -17,18 +17,17 @@ class UserController extends Controller
 
     public function registerAction()
     {
-        if (isset($_POST['email']) && isset($_POST['password'])) {
-            $action = new UserModel($_POST['email'], $_POST['password']);
-            $action->save();
-            
-        }
-        else{
+        if (isset($_POST['memail']) && isset($_POST['mpassword'])) {
+            $action = new \src\Model\UserModel();
+            $action->setEmail($_POST['memail']);
+            $action->setPassword($_POST['mpassword']);
+            $action->create();
+        } else {
             $this->render('register');
         }
     }
     public function loginAction()
     {
-        $this->render('login');
+        
     }
-    
 }

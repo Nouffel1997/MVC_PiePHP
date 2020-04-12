@@ -1,49 +1,45 @@
 <?php
-
-class UserModel extends Entity
+namespace src\Model;
+class UserModel extends \Core\Entity
 {
 
-    protected $id;
-    private $email;
-    private $password;
-    private $tableName = 'users';
+    
+    public $email;
+    public $password;
+    public $tableName = 'users';
     private $dbConn;
-
-    function setId($id)
+   
+    public function __construct()
     {
-        $this->id = $id;
+       
+        $db = new \Core\Database();
+        $this->dbConn = $db->connect();
+        var_dump($db);
     }
-    function getId()
+    
+    function getEmail()
     {
-        return $this->id;
+        return $this->email;
     }
     function setEmail($email)
     {
         $this->email = $email;
     }
-    function getEmail()
+    function getPassword()
     {
-        return $this->email;
+        return $this->password;
     }
     function setPassword($password)
     {
         $this->password = $password;
     }
-    function getPassword()
-    {
-        return $this->password;
-    }
+    
 
 
-    public function __construct()
-    {
-        require_once('Database.php');
-        $db = new DbConnect();
-        $this->dbConn = $db->connect();
-    }
+    
     public function save()
     {
-        $sql = "INSERT INTO $this->tableName VALUES(null, :email, :password)";
+        $sql = "INSERT INTO users (email, password) VALUES(:email, :password)";
         $stmt = $this->dbConn->prepare($sql);
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':password', $this->password);
@@ -53,7 +49,7 @@ class UserModel extends Entity
 
     public function create()
     {
-        $sql = "INSERT INTO $this->tableName VALUES(null, :email, :password)";
+        $sql = "INSERT INTO users (email, password) VALUES(:email, :password)";
         $stmt = $this->dbConn->prepare($sql);
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':password', $this->password);

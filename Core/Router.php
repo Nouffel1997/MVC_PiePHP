@@ -1,5 +1,5 @@
 <?php
-
+namespace Core;
 class Router
 {
     private static $routes;
@@ -15,7 +15,7 @@ class Router
         // - la methode du controller a appeler
        return array('controller' => 'app', 'action' => 'index');
 
-       
+
        
     }
 }

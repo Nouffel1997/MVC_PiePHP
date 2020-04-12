@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" action="/MVC_PiePHP/index.php" method="post">
+<form enctype="multipart/form-data" action="/MVC_PiePHP/user/login" method="post">
     <fieldset>
         <legend>Formulaire</legend>
         <p>

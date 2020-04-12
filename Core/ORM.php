@@ -1,11 +1,16 @@
 <?php
-class ORM extends DbConnect
+namespace Core;
+namespace Database;
+class ORM
 {
     public function create($table, $fields)
     {
+        require_once('UserModel.php');
+        $fields = array_values(['memail' => $email, 'mpassword' => $password]);
+        $table = 'users';
         $sql = "INSERT INTO $table VALUES($fields)";
         $stmt = $this->dbConn->prepare($sql);
-        $stmt->bindParam(':fields', $fields);
+        //$stmt->bindParam(':fields', $fields);
         $stmt->execute();
        
     }
